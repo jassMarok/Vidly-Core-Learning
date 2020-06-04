@@ -20,10 +20,10 @@ namespace Vidly
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MembershipType>().HasData(
-                new MembershipType{Id = 1, SignUpFee = 0, DiscountRate = 0, DurationInMonths = 0},
-                new MembershipType { Id = 2, SignUpFee = 30, DiscountRate = 10, DurationInMonths = 1 },
-                new MembershipType { Id = 3, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 3 },
-                new MembershipType { Id = 4, SignUpFee = 300, DiscountRate = 30, DurationInMonths = 12 }
+                new MembershipType{Id = 1, SignUpFee = 0, DiscountRate = 0, DurationInMonths = 0, Name = "Pay As You Go"},
+                new MembershipType { Id = 2, SignUpFee = 30, DiscountRate = 10, DurationInMonths = 1, Name = "Monthly"},
+                new MembershipType { Id = 3, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 3, Name = "Quarterly"},
+                new MembershipType { Id = 4, SignUpFee = 300, DiscountRate = 30, DurationInMonths = 12, Name = "Yearly"}
                 );
 
             modelBuilder.Entity<Customer>().HasData(

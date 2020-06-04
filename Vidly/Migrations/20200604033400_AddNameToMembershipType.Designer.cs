@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vidly;
 
 namespace Vidly.Migrations
 {
     [DbContext(typeof(VidlyDbContext))]
-    partial class VidlyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200604033400_AddNameToMembershipType")]
+    partial class AddNameToMembershipType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,6 @@ namespace Vidly.Migrations
                             Id = 1,
                             DiscountRate = (byte)0,
                             DurationInMonths = (byte)0,
-                            Name = "Pay As You Go",
                             SignUpFee = (short)0
                         },
                         new
@@ -110,7 +111,6 @@ namespace Vidly.Migrations
                             Id = 2,
                             DiscountRate = (byte)10,
                             DurationInMonths = (byte)1,
-                            Name = "Monthly",
                             SignUpFee = (short)30
                         },
                         new
@@ -118,7 +118,6 @@ namespace Vidly.Migrations
                             Id = 3,
                             DiscountRate = (byte)15,
                             DurationInMonths = (byte)3,
-                            Name = "Quarterly",
                             SignUpFee = (short)90
                         },
                         new
@@ -126,7 +125,6 @@ namespace Vidly.Migrations
                             Id = 4,
                             DiscountRate = (byte)30,
                             DurationInMonths = (byte)12,
-                            Name = "Yearly",
                             SignUpFee = (short)300
                         });
                 });
