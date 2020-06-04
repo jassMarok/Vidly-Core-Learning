@@ -11,11 +11,13 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Name)
         @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
         @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
     </div>
 
     <div class="form-group">
@@ -25,14 +27,22 @@
             new SelectList(Model.Genre, "Id", "Name" ),
             "Select a Genre",
             new {@class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Movie.GenreId)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.NumberInStock)
         @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
     </div>
 
-    @Html.HiddenFor(m=>m.Movie.Id);
+    @Html.HiddenFor(m=>m.Movie.Id)
+    @Html.AntiForgeryToken();
 
     <button class="btn btn-primary" >Submit</button>
+}
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

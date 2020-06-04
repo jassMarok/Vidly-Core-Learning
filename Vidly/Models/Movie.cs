@@ -26,8 +26,10 @@ namespace Vidly.Models
         [Required]
         [Display(Name = "Number in Stock")]
         public ulong NumberInStock { get; set; }
+
         public Genre Genre { get; set; }
 
+        [Required]
         [Display(Name = "Genre")]
         public int? GenreId { get; set; }
     }
