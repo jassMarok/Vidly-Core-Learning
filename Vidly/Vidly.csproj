@@ -9,6 +9,10 @@
     <Compile Remove="Migrations\20200604034344_AddBirthDateToCustomer.Designer.cs" />
     <Compile Remove="Migrations\20200604040308_AddGenreToMovie.cs" />
     <Compile Remove="Migrations\20200604040308_AddGenreToMovie.Designer.cs" />
+    <Compile Remove="Migrations\20200604153143_AddMembershipTypeToDbSet.cs" />
+    <Compile Remove="Migrations\20200604153143_AddMembershipTypeToDbSet.Designer.cs" />
+    <Compile Remove="Migrations\20200604172233_AddMembershipTypeToDbSet.cs" />
+    <Compile Remove="Migrations\20200604172233_AddMembershipTypeToDbSet.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
