@@ -1,16 +1,34 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Vidly.Migrations
 {
-    public partial class AddGenreToMovie : Migration
+    public partial class AddGenreToMovieAndUpdateMovie : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DateAdded",
+                table: "Movies",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
             migrationBuilder.AddColumn<int>(
                 name: "GenreId",
                 table: "Movies",
+                nullable: true);
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "NumberInStock",
+                table: "Movies",
                 nullable: false,
-                defaultValue: 0);
+                defaultValue: 0m);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "ReleaseDate",
+                table: "Movies",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.CreateTable(
                 name: "Genre",
@@ -36,7 +54,7 @@ namespace Vidly.Migrations
                 column: "GenreId",
                 principalTable: "Genre",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -53,7 +71,19 @@ namespace Vidly.Migrations
                 table: "Movies");
 
             migrationBuilder.DropColumn(
+                name: "DateAdded",
+                table: "Movies");
+
+            migrationBuilder.DropColumn(
                 name: "GenreId",
+                table: "Movies");
+
+            migrationBuilder.DropColumn(
+                name: "NumberInStock",
+                table: "Movies");
+
+            migrationBuilder.DropColumn(
+                name: "ReleaseDate",
                 table: "Movies");
         }
     }

@@ -26,6 +26,14 @@ namespace Vidly
                 new MembershipType { Id = 4, SignUpFee = 300, DiscountRate = 30, DurationInMonths = 12, Name = "Yearly"}
                 );
 
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre {Id = 1, Name = "Horror"},
+                new Genre {Id = 2, Name = "Action"},
+                new Genre {Id = 3, Name = "Comedy"},
+                new Genre {Id = 4, Name = "Drama"},
+                new Genre {Id = 5, Name = "Thriller"}
+            );
+
             modelBuilder.Entity<Customer>().HasData(
                 new Customer { Id = 1, Name = "Jaspal", IsSubscribedToNewsletter = true, MembershipTypeId = 1, BirthDate = new DateTime(1996,02, 2)},
                 new Customer { Id = 2, Name = "Harpreet", IsSubscribedToNewsletter = false, MembershipTypeId = 4},
@@ -34,17 +42,17 @@ namespace Vidly
                 );
 
             modelBuilder.Entity<Movie>().HasData(
-                new Movie {Id = 1, Name = "The Seven Samurai" },
-                new Movie {Id = 2, Name = "Bonnie and Clyde" },
-                new Movie {Id = 3, Name = "Reservoir Dogs" },
-                new Movie {Id = 4, Name = "Airplane!" },
-                new Movie {Id = 5, Name = "Pan's Labyrinth" },
-                new Movie {Id = 6, Name = "Doctor Zhivago" },
-                new Movie {Id = 7, Name = "Pulp Fiction" },
-                new Movie {Id = 8, Name = "The Shawshank Redemption" },
-                new Movie {Id = 9, Name = "Citizen Kane" },
-                new Movie {Id = 10, Name = "The Wizard of Oz" },
-                new Movie {Id = 11, Name = "The Godfather" }
+                new Movie {Id = 1, Name = "The Seven Samurai", GenreId = 5, NumberInStock = 10, DateAdded = new DateTime(1990,11, 15), ReleaseDate = new DateTime(1988,11,12)},
+                new Movie {Id = 2, Name = "Bonnie and Clyde", GenreId = 2, NumberInStock = 100, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 3, Name = "Reservoir Dogs" , GenreId = 3, NumberInStock = 30, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 4, Name = "Airplane!", GenreId = 1, NumberInStock = 50, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 5, Name = "Pan's Labyrinth", GenreId = 3, NumberInStock = 5, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 6, Name = "Doctor Zhivago", GenreId = 1, NumberInStock = 10, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 7, Name = "Pulp Fiction", GenreId = 1, NumberInStock = 4, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 8, Name = "The Shawshank Redemption", GenreId = 4, NumberInStock =6, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 9, Name = "Citizen Kane", GenreId = 1, NumberInStock = 8, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 10, Name = "The Wizard of Oz", GenreId = 4, NumberInStock = 0, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) },
+                new Movie {Id = 11, Name = "The Godfather", GenreId = 4, NumberInStock = 90, DateAdded = new DateTime(1990, 11, 15), ReleaseDate = new DateTime(1988, 11, 12) }
                 );
         }
     }

@@ -22,13 +22,13 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
             return View(movies);
         }
 
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.FirstOrDefault(x => x.Id == id);
+            var movie = _context.Movies.Include(m => m.Genre).FirstOrDefault(x => x.Id == id);
 
             if (movie == null)
             {

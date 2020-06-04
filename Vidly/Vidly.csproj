@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200604034344_AddBirthDateToCustomer.cs" />
     <Compile Remove="Migrations\20200604034344_AddBirthDateToCustomer.Designer.cs" />
+    <Compile Remove="Migrations\20200604040308_AddGenreToMovie.cs" />
+    <Compile Remove="Migrations\20200604040308_AddGenreToMovie.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

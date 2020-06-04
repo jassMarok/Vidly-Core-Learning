@@ -10,8 +10,8 @@ using Vidly;
 namespace Vidly.Migrations
 {
     [DbContext(typeof(VidlyDbContext))]
-    [Migration("20200604040308_AddGenreToMovie")]
-    partial class AddGenreToMovie
+    [Migration("20200604041125_AddGenreToMovieAndUpdateMovie")]
+    partial class AddGenreToMovieAndUpdateMovie
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -163,11 +163,20 @@ namespace Vidly.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("GenreId")
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("NumberInStock")
+                        .HasColumnType("decimal(20,0)");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -179,68 +188,90 @@ namespace Vidly.Migrations
                         new
                         {
                             Id = 1,
-                            GenreId = 0,
-                            Name = "The Seven Samurai"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Seven Samurai",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            GenreId = 0,
-                            Name = "Bonnie and Clyde"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Bonnie and Clyde",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            GenreId = 0,
-                            Name = "Reservoir Dogs"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Reservoir Dogs",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
-                            GenreId = 0,
-                            Name = "Airplane!"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Airplane!",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            GenreId = 0,
-                            Name = "Pan's Labyrinth"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Pan's Labyrinth",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
-                            GenreId = 0,
-                            Name = "Doctor Zhivago"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Doctor Zhivago",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 7,
-                            GenreId = 0,
-                            Name = "Pulp Fiction"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Pulp Fiction",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 8,
-                            GenreId = 0,
-                            Name = "The Shawshank Redemption"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Shawshank Redemption",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 9,
-                            GenreId = 0,
-                            Name = "Citizen Kane"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Citizen Kane",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 10,
-                            GenreId = 0,
-                            Name = "The Wizard of Oz"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Wizard of Oz",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 11,
-                            GenreId = 0,
-                            Name = "The Godfather"
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Godfather",
+                            NumberInStock = 0m,
+                            ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -257,9 +288,7 @@ namespace Vidly.Migrations
                 {
                     b.HasOne("Vidly.Models.Genre", "Genre")
                         .WithMany()
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenreId");
                 });
 #pragma warning restore 612, 618
         }
