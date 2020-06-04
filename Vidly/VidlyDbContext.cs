@@ -27,9 +27,9 @@ namespace Vidly
                 );
 
             modelBuilder.Entity<Customer>().HasData(
-                new Customer { Id = 1, Name = "Jaspal", IsSubscribedToNewsletter = true, MembershipTypeId = 1},
+                new Customer { Id = 1, Name = "Jaspal", IsSubscribedToNewsletter = true, MembershipTypeId = 1, BirthDate = new DateTime(1996,02, 2)},
                 new Customer { Id = 2, Name = "Harpreet", IsSubscribedToNewsletter = false, MembershipTypeId = 4},
-                new Customer { Id = 3, Name = "Vikram", IsSubscribedToNewsletter = true, MembershipTypeId = 3 },
+                new Customer { Id = 3, Name = "Vikram", IsSubscribedToNewsletter = true, MembershipTypeId = 3, BirthDate = new DateTime(1990, 02, 2) },
                 new Customer { Id = 4, Name = "Harkawal", IsSubscribedToNewsletter = false, MembershipTypeId = 2 }
                 );
 

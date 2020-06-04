@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vidly;
 
 namespace Vidly.Migrations
 {
     [DbContext(typeof(VidlyDbContext))]
-    partial class VidlyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200604034636_AddBirthDateToCustomer")]
+    partial class AddBirthDateToCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +52,6 @@ namespace Vidly.Migrations
                         new
                         {
                             Id = 1,
-                            BirthDate = new DateTime(1996, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsSubscribedToNewsletter = true,
                             MembershipTypeId = 1,
                             Name = "Jaspal"
@@ -65,7 +66,6 @@ namespace Vidly.Migrations
                         new
                         {
                             Id = 3,
-                            BirthDate = new DateTime(1990, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsSubscribedToNewsletter = true,
                             MembershipTypeId = 3,
                             Name = "Vikram"
