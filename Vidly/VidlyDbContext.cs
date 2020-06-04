@@ -19,7 +19,33 @@ namespace Vidly
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<MembershipType>().HasData(
+                new MembershipType{Id = 1, SignUpFee = 0, DiscountRate = 0, DurationInMonths = 0},
+                new MembershipType { Id = 2, SignUpFee = 30, DiscountRate = 10, DurationInMonths = 1 },
+                new MembershipType { Id = 3, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 3 },
+                new MembershipType { Id = 4, SignUpFee = 300, DiscountRate = 30, DurationInMonths = 12 }
+                );
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer { Id = 1, Name = "Jaspal", IsSubscribedToNewsletter = true, MembershipTypeId = 1},
+                new Customer { Id = 2, Name = "Harpreet", IsSubscribedToNewsletter = false, MembershipTypeId = 4},
+                new Customer { Id = 3, Name = "Vikram", IsSubscribedToNewsletter = true, MembershipTypeId = 3 },
+                new Customer { Id = 4, Name = "Harkawal", IsSubscribedToNewsletter = false, MembershipTypeId = 2 }
+                );
+
+            modelBuilder.Entity<Movie>().HasData(
+                new Movie {Id = 1, Name = "The Seven Samurai" },
+                new Movie {Id = 2, Name = "Bonnie and Clyde" },
+                new Movie {Id = 3, Name = "Reservoir Dogs" },
+                new Movie {Id = 4, Name = "Airplane!" },
+                new Movie {Id = 5, Name = "Pan's Labyrinth" },
+                new Movie {Id = 6, Name = "Doctor Zhivago" },
+                new Movie {Id = 7, Name = "Pulp Fiction" },
+                new Movie {Id = 8, Name = "The Shawshank Redemption" },
+                new Movie {Id = 9, Name = "Citizen Kane" },
+                new Movie {Id = 10, Name = "The Wizard of Oz" },
+                new Movie {Id = 11, Name = "The Godfather" }
+                );
         }
     }
 }
