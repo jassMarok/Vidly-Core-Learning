@@ -42,10 +42,9 @@ namespace Vidly.Controllers
         {
             var genres = _context.Genre.ToList();
 
-            var model = new MovieFormViewModel
+            var model = new MovieFormViewModel()
             {
-                Genre = genres,
-                Movie = new Movie()
+                Genre = genres
             };
 
             ViewBag.Title = "Add Movie";
@@ -62,10 +61,9 @@ namespace Vidly.Controllers
                 return NotFound();
             }
 
-            var model = new MovieFormViewModel
+            var model = new MovieFormViewModel(movie)
             {
                 Genre = _context.Genre.ToList(),
-                Movie = movie
             };
 
             ViewBag.Title = "Edit Movie";
